@@ -1,0 +1,111 @@
+{
+  "dataset": "WIKIDATA12k",
+  "input_file": "/home/harrouch/Paper2/Paper2/data/WIKIDATA12k/full_graph.txt",
+  "temporal_semantics": "Original interval-based facts. Snapshots contain base triples active at the selected year.",
+  "unknown_date_handling": {
+    "unknown_start": "Excluded because the start of validity cannot be determined.",
+    "unknown_end": "Treated as right-censored: no termination is observed within the dataset.",
+    "partial_date": "Year-level granularity is used. Unknown month/day are not imputed."
+  },
+  "attack_definition": {
+    "G1": "Base triples active at t1.",
+    "G2": "Base triples active at t2.",
+    "Added": "G2 - G1",
+    "Unchanged": "G1 intersection G2",
+    "Removed": "G1 - G2; reported for descriptive purposes only and not used in the current attack."
+  },
+  "raw_statistics": {
+    "total_rows": 40621,
+    "usable_rows": 39206,
+    "unknown_end": 4735,
+    "unknown_start": 1405,
+    "excluded_unknown_start": 1405,
+    "excluded_invalid_interval": 10
+  },
+  "temporal_range": {
+    "min_year": 19,
+    "max_year": 2020,
+    "n_observed_years": 615
+  },
+  "candidate_snapshot_pairs": [
+    {
+      "ratio_t1": 0.6,
+      "ratio_t2": 0.7,
+      "t1": 1772,
+      "t2": 1835,
+      "temporal_gap_years": 63,
+      "G1_size": 137,
+      "G2_size": 822,
+      "Added": 747,
+      "Unchanged": 75,
+      "Removed_report_only": 62,
+      "balanced_capacity": 75
+    },
+    {
+      "ratio_t1": 0.6,
+      "ratio_t2": 0.8,
+      "t1": 1772,
+      "t2": 1897,
+      "temporal_gap_years": 125,
+      "G1_size": 137,
+      "G2_size": 997,
+      "Added": 933,
+      "Unchanged": 64,
+      "Removed_report_only": 73,
+      "balanced_capacity": 64
+    },
+    {
+      "ratio_t1": 0.7,
+      "ratio_t2": 0.8,
+      "t1": 1835,
+      "t2": 1897,
+      "temporal_gap_years": 62,
+      "G1_size": 822,
+      "G2_size": 997,
+      "Added": 693,
+      "Unchanged": 304,
+      "Removed_report_only": 518,
+      "balanced_capacity": 304
+    },
+    {
+      "ratio_t1": 0.7,
+      "ratio_t2": 0.9,
+      "t1": 1835,
+      "t2": 1958,
+      "temporal_gap_years": 123,
+      "G1_size": 822,
+      "G2_size": 1727,
+      "Added": 1236,
+      "Unchanged": 491,
+      "Removed_report_only": 331,
+      "balanced_capacity": 491
+    },
+    {
+      "ratio_t1": 0.8,
+      "ratio_t2": 0.9,
+      "t1": 1897,
+      "t2": 1958,
+      "temporal_gap_years": 61,
+      "G1_size": 997,
+      "G2_size": 1727,
+      "Added": 1185,
+      "Unchanged": 542,
+      "Removed_report_only": 455,
+      "balanced_capacity": 542
+    }
+  ],
+  "selection_rule": "Maximize min(#Added, #Unchanged). If tied, prefer the smaller temporal gap. Attack performance is not used to select snapshots.",
+  "selected": {
+    "ratio_t1": 0.8,
+    "ratio_t2": 0.9,
+    "t1": 1897,
+    "t2": 1958,
+    "temporal_gap_years": 61,
+    "G1_size": 997,
+    "G2_size": 1727,
+    "Added": 1185,
+    "Unchanged": 542,
+    "Removed_report_only": 455,
+    "balanced_capacity": 542
+  }
+}

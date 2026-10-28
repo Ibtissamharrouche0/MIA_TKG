@@ -1,0 +1,111 @@
+{
+  "dataset": "YAGO11k",
+  "input_file": "/home/harrouch/Paper2/Paper2/data/YAGO11k/full_graph.txt",
+  "temporal_semantics": "Original interval-based facts. Snapshots contain base triples active at the selected year.",
+  "unknown_date_handling": {
+    "unknown_start": "Excluded because the start of validity cannot be determined.",
+    "unknown_end": "Treated as right-censored: no termination is observed within the dataset.",
+    "partial_date": "Year-level granularity is used. Unknown month/day are not imputed."
+  },
+  "attack_definition": {
+    "G1": "Base triples active at t1.",
+    "G2": "Base triples active at t2.",
+    "Added": "G2 - G1",
+    "Unchanged": "G1 intersection G2",
+    "Removed": "G1 - G2; reported for descriptive purposes only and not used in the current attack."
+  },
+  "raw_statistics": {
+    "total_rows": 20509,
+    "usable_rows": 20416,
+    "unknown_end": 9000,
+    "unknown_start": 23,
+    "excluded_unknown_start": 23,
+    "excluded_invalid_interval": 70
+  },
+  "temporal_range": {
+    "min_year": 100,
+    "max_year": 2844,
+    "n_observed_years": 371
+  },
+  "candidate_snapshot_pairs": [
+    {
+      "ratio_t1": 0.6,
+      "ratio_t2": 0.7,
+      "t1": 1875,
+      "t2": 1912,
+      "temporal_gap_years": 37,
+      "G1_size": 499,
+      "G2_size": 949,
+      "Added": 505,
+      "Unchanged": 444,
+      "Removed_report_only": 55,
+      "balanced_capacity": 444
+    },
+    {
+      "ratio_t1": 0.6,
+      "ratio_t2": 0.8,
+      "t1": 1875,
+      "t2": 1949,
+      "temporal_gap_years": 74,
+      "G1_size": 499,
+      "G2_size": 2220,
+      "Added": 1791,
+      "Unchanged": 429,
+      "Removed_report_only": 70,
+      "balanced_capacity": 429
+    },
+    {
+      "ratio_t1": 0.7,
+      "ratio_t2": 0.8,
+      "t1": 1912,
+      "t2": 1949,
+      "temporal_gap_years": 37,
+      "G1_size": 949,
+      "G2_size": 2220,
+      "Added": 1396,
+      "Unchanged": 824,
+      "Removed_report_only": 125,
+      "balanced_capacity": 824
+    },
+    {
+      "ratio_t1": 0.7,
+      "ratio_t2": 0.9,
+      "t1": 1912,
+      "t2": 1986,
+      "temporal_gap_years": 74,
+      "G1_size": 949,
+      "G2_size": 4624,
+      "Added": 3836,
+      "Unchanged": 788,
+      "Removed_report_only": 161,
+      "balanced_capacity": 788
+    },
+    {
+      "ratio_t1": 0.8,
+      "ratio_t2": 0.9,
+      "t1": 1949,
+      "t2": 1986,
+      "temporal_gap_years": 37,
+      "G1_size": 2220,
+      "G2_size": 4624,
+      "Added": 2748,
+      "Unchanged": 1876,
+      "Removed_report_only": 344,
+      "balanced_capacity": 1876
+    }
+  ],
+  "selection_rule": "Maximize min(#Added, #Unchanged). If tied, prefer the smaller temporal gap. Attack performance is not used to select snapshots.",
+  "selected": {
+    "ratio_t1": 0.8,
+    "ratio_t2": 0.9,
+    "t1": 1949,
+    "t2": 1986,
+    "temporal_gap_years": 37,
+    "G1_size": 2220,
+    "G2_size": 4624,
+    "Added": 2748,
+    "Unchanged": 1876,
+    "Removed_report_only": 344,
+    "balanced_capacity": 1876
+  }
+}

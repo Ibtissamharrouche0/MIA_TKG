@@ -1,0 +1,3 @@
+dataset,t1,t2,G1,G2,Added,Unchanged,Removed_report_only,balanced_capacity
+YAGO11k,1949,1986,2220,4624,2748,1876,344,1876
+WIKIDATA12k,1897,1958,997,1727,1185,542,455,542
